@@ -21,6 +21,8 @@
 		3E6DF08228D64168002ACFC0 /* MypageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF08128D64168002ACFC0 /* MypageView.storyboard */; };
 		3E6DF08428D641A7002ACFC0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF08328D641A7002ACFC0 /* TabBarController.swift */; };
 		3E6DF08628D643B3002ACFC0 /* FakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF08528D643B3002ACFC0 /* FakeViewController.swift */; };
+		3E6DF08B28D65689002ACFC0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */; };
+		3E6DF08C28D65689002ACFC0 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		3E6DF08128D64168002ACFC0 /* MypageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageView.storyboard; sourceTree = "<group>"; };
 		3E6DF08328D641A7002ACFC0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3E6DF08528D643B3002ACFC0 /* FakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeViewController.swift; sourceTree = "<group>"; };
+		3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				3E6DF07F28D6414E002ACFC0 /* MypageViewController.swift */,
 				3E6DF08328D641A7002ACFC0 /* TabBarController.swift */,
 				3E6DF08528D643B3002ACFC0 /* FakeViewController.swift */,
+				3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */,
+				3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */,
 			);
 			path = Mealog;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 				3E6DF07628D640D2002ACFC0 /* MainView.storyboard in Resources */,
 				3E6DF04D28D639CA002ACFC0 /* Assets.xcassets in Resources */,
 				3E6DF08228D64168002ACFC0 /* MypageView.storyboard in Resources */,
+				3E6DF08C28D65689002ACFC0 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +283,7 @@
 			files = (
 				3E6DF08628D643B3002ACFC0 /* FakeViewController.swift in Sources */,
 				3E6DF07828D640FE002ACFC0 /* MainViewController.swift in Sources */,
+				3E6DF08B28D65689002ACFC0 /* CollectionViewCell.swift in Sources */,
 				3E6DF04428D639CA002ACFC0 /* AppDelegate.swift in Sources */,
 				3E6DF04628D639CA002ACFC0 /* SceneDelegate.swift in Sources */,
 				3E6DF08428D641A7002ACFC0 /* TabBarController.swift in Sources */,
