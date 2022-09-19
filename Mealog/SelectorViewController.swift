@@ -7,26 +7,35 @@
 
 import UIKit
 import Photos
-class SelectorViewController: UIViewController {
+import CropViewController
 
+class SelectorViewController: UIViewController{
+
+    @IBOutlet weak var pagecontroll: UIPageControl!
     @IBOutlet weak var CollectionView: UICollectionView!
-    @IBOutlet weak var ScrollView: UIScrollView!
+    //@IBOutlet weak var ScrollView: UIScrollView!
     var ImageView = UIImageView()
+    var pageViewController: UIPageViewController?
     var selectnumber:Array<Int> = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        pageViewController = children.first! as? UIPageViewController
+        pageViewController!.dataSource = self
+        pageViewController!.delegate = self
         CollectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         photos = camerarollAssets()
-        ScrollView.delegate = self
+        pagecontroll.numberOfPages = selectnumber.count
+        pagecontroll.currentPage = 0
+        /*ScrollView.delegate = self
                 // 最大倍率・最小倍率を設定する
         ScrollView.maximumZoomScale = 5.0
-        ScrollView.minimumZoomScale = 1.0
+        ScrollView.minimumZoomScale = 1.0*/
         ImageView.frame = CGRect(x:0,y:0,width:view.frame.width,height:view.frame.height)
         ImageView.image = originalImage(asset: photos[0])
-        ScrollView.addSubview(ImageView)
+        //ScrollView.addSubview(ImageView)
         ImageView.contentMode = .scaleAspectFit
-        ScrollView.showsVerticalScrollIndicator = false
-        ScrollView.showsHorizontalScrollIndicator = false
+        //ScrollView.showsVerticalScrollIndicator = false
+        //ScrollView.showsHorizontalScrollIndicator = false
         CollectionView.allowsMultipleSelection = false
         // Do any additional setup after loading the view.
     }
@@ -116,6 +125,33 @@ class SelectorViewController: UIViewController {
 
         return assetImage
     }
+    var cnt = 0
+    func setViewController() {
+            if cnt < selectnumber.count {
+                let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
+                // 遷移先のViewControllerにpalletの色を送る
+                contentVC.selectimage = originalImage(asset: photos[selectnumber.last!])
+                pagecontroll.numberOfPages = selectnumber.count
+                contentVC.selectnumber = selectnumber.last
+                cnt =  selectnumber.count - 1
+                pagecontroll.currentPage = cnt
+                // PageViewControllerにViewControllerをセット
+                self.pageViewController?.setViewControllers([contentVC], direction: .forward, animated: true,completion: nil)
+            }
+        }
+    func desetViewController() {
+                let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
+                // 遷移先のViewControllerにpalletの色を送る
+        if selectnumber.count > 0{
+                contentVC.selectimage = originalImage(asset: photos[selectnumber.last!])
+                contentVC.selectnumber = selectnumber.last
+        }
+                cnt =  selectnumber.count - 1
+                pagecontroll.numberOfPages = selectnumber.count
+                pagecontroll.currentPage = cnt
+                // PageViewControllerにViewControllerをセット
+                self.pageViewController?.setViewControllers([contentVC], direction: .forward, animated: false,completion: nil)
+        }
 
     /*
     // MARK: - Navigation
@@ -127,6 +163,18 @@ class SelectorViewController: UIViewController {
     }
     */
 
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    @IBAction func pagecontrolchanged(_ sender: UIPageControl) {
+        print(sender.currentPage)
+        let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
+        // 遷移先のViewControllerにpalletの色を送る
+        contentVC.selectimage = originalImage(asset: photos[selectnumber[sender.currentPage]])
+        cnt =  sender.currentPage
+        // PageViewControllerにViewControllerをセット
+        self.pageViewController?.setViewControllers([contentVC], direction: .forward, animated: true,completion: nil)
+    }
 }
 extension SelectorViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -152,17 +200,29 @@ extension SelectorViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell: CollectionViewCell = CollectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        
         if selectnumber.contains(indexPath.item){
             cell.dissetCheck()
             selectnumber.removeAll(where: {$0 == indexPath.item})
             reloadcell()
+            desetViewController()
         }
         else{
+            
             if selectnumber.count < 10{
             selectnumber.append(indexPath.item)
             cell.setCheck(number: (selectnumber.count))
             ImageView.image = originalImage(asset: photos[indexPath.item])
+            setViewController()
+                let cropViewController = CropViewController(croppingStyle: .default, image: originalImage(asset: photos[indexPath.item])!)
+                cropViewController.delegate = self
+                cropViewController.aspectRatioPreset = .presetSquare
+                cropViewController.aspectRatioPickerButtonHidden = true
+                cropViewController.resetButtonHidden = true
+                cropViewController.aspectRatioLockEnabled = true
+                cropViewController.cancelButtonHidden = false
+                cropViewController.rotateButtonsHidden = true
+                cropViewController.doneButtonHidden = false
+                present(cropViewController, animated: true)
             }
         }
         
@@ -170,8 +230,10 @@ extension SelectorViewController: UICollectionViewDelegate, UICollectionViewData
     
     func reloadcell(){
         for (i, value) in selectnumber.enumerated(){
-            let cell: CollectionViewCell = CollectionView.cellForItem(at: [0, value]) as! CollectionViewCell
+            if let cell: CollectionViewCell = CollectionView.cellForItem(at: [0, value]) as? CollectionViewCell{
             cell.setCheck(number: (i+1))
+            setViewController()
+            }
         }
     }
 }
@@ -187,27 +249,52 @@ extension SelectorViewController: UICollectionViewDelegateFlowLayout {
     
 
 }
-extension SelectorViewController: UIScrollViewDelegate{
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return self.ImageView
+extension SelectorViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+          let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
+            if 0 < cnt {
+                contentVC.selectimage = originalImage(asset: photos[selectnumber[cnt-1]])
+                contentVC.selectnumber = selectnumber[cnt-1]
+                return contentVC
+            }
+        else{
+            return nil
         }
+        }
+        // Afterなので右側のViewController
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+               
+            let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
+            if cnt+1 < selectnumber.count {
+                contentVC.selectimage = originalImage(asset: photos[selectnumber[cnt+1]])
+                contentVC.selectnumber = selectnumber[cnt+1]
+                return contentVC
+            }
+        else{
+            return nil
+        }
+        }
+    }
 
-        func scrollViewDidZoom(_ scrollView: UIScrollView) {
-            // ズーム終了時の処理
-        }
+extension SelectorViewController: UIPageViewControllerDelegate{
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        // toIndexの部分はindexに変換する適当な処理
+    }
 
-        func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-            // ズーム開始時の処理
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            let contentVC: SlideImageViewController = pageViewController.viewControllers?.first as! SlideImageViewController
+            cnt = selectnumber.firstIndex(of: contentVC.selectnumber!)!
+            pagecontroll.currentPage = cnt
+            
         }
-
-        func zoomForScale(scale:CGFloat, center: CGPoint) -> CGRect{
-            print("jijj")
-            var zoomRect: CGRect = CGRect()
-            zoomRect.size.height = self.ScrollView.frame.size.height / scale
-            zoomRect.size.width = self.ScrollView.frame.size.width  / scale
-            zoomRect.origin.x = center.x - zoomRect.size.width / 2.0
-            zoomRect.origin.y = center.y - zoomRect.size.height / 2.0
-            return zoomRect
-        }
+    }
+    
 }
+extension SelectorViewController: CropViewControllerDelegate{
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int){
+        dismiss(animated: true)
+    }
+}
+
 

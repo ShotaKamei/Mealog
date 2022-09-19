@@ -41,6 +41,7 @@ extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == tabBarController.viewControllers?[1] {
             if let newVC = UIStoryboard(name: "SelectorView", bundle: nil).instantiateInitialViewController() {
+                newVC.modalPresentationStyle = .fullScreen
                             tabBarController.present(newVC, animated: true, completion: nil)
                             return false
                         }

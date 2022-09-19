@@ -23,6 +23,9 @@
 		3E6DF08628D643B3002ACFC0 /* FakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF08528D643B3002ACFC0 /* FakeViewController.swift */; };
 		3E6DF08B28D65689002ACFC0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */; };
 		3E6DF08C28D65689002ACFC0 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */; };
+		3E6DF08F28D8A8BD002ACFC0 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6DF08E28D8A8BD002ACFC0 /* CropViewController */; };
+		3E6DF09128D8A8BD002ACFC0 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6DF09028D8A8BD002ACFC0 /* TOCropViewController */; };
+		3E6DF09528D8B69B002ACFC0 /* SlideImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF09428D8B69B002ACFC0 /* SlideImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,7 @@
 		3E6DF08528D643B3002ACFC0 /* FakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeViewController.swift; sourceTree = "<group>"; };
 		3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		3E6DF09428D8B69B002ACFC0 /* SlideImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E6DF09128D8A8BD002ACFC0 /* TOCropViewController in Frameworks */,
+				3E6DF08F28D8A8BD002ACFC0 /* CropViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +133,7 @@
 				3E6DF08528D643B3002ACFC0 /* FakeViewController.swift */,
 				3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */,
 				3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */,
+				3E6DF09428D8B69B002ACFC0 /* SlideImageViewController.swift */,
 			);
 			path = Mealog;
 			sourceTree = "<group>";
@@ -164,6 +171,10 @@
 			dependencies = (
 			);
 			name = Mealog;
+			packageProductDependencies = (
+				3E6DF08E28D8A8BD002ACFC0 /* CropViewController */,
+				3E6DF09028D8A8BD002ACFC0 /* TOCropViewController */,
+			);
 			productName = Mealog;
 			productReference = 3E6DF04028D639CA002ACFC0 /* Mealog.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +247,9 @@
 				Base,
 			);
 			mainGroup = 3E6DF03728D639CA002ACFC0;
+			packageReferences = (
+				3E6DF08D28D8A8BD002ACFC0 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+			);
 			productRefGroup = 3E6DF04128D639CA002ACFC0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,6 +298,7 @@
 				3E6DF08628D643B3002ACFC0 /* FakeViewController.swift in Sources */,
 				3E6DF07828D640FE002ACFC0 /* MainViewController.swift in Sources */,
 				3E6DF08B28D65689002ACFC0 /* CollectionViewCell.swift in Sources */,
+				3E6DF09528D8B69B002ACFC0 /* SlideImageViewController.swift in Sources */,
 				3E6DF04428D639CA002ACFC0 /* AppDelegate.swift in Sources */,
 				3E6DF04628D639CA002ACFC0 /* SceneDelegate.swift in Sources */,
 				3E6DF08428D641A7002ACFC0 /* TabBarController.swift in Sources */,
@@ -609,6 +624,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3E6DF08D28D8A8BD002ACFC0 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3E6DF08E28D8A8BD002ACFC0 /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E6DF08D28D8A8BD002ACFC0 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = CropViewController;
+		};
+		3E6DF09028D8A8BD002ACFC0 /* TOCropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E6DF08D28D8A8BD002ACFC0 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = TOCropViewController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3E6DF03828D639CA002ACFC0 /* Project object */;
 }
