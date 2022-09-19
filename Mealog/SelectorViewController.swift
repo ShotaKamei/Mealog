@@ -10,11 +10,24 @@ import Photos
 class SelectorViewController: UIViewController {
 
     @IBOutlet weak var CollectionView: UICollectionView!
-    
+    @IBOutlet weak var ScrollView: UIScrollView!
+    var ImageView = UIImageView()
+    var selectnumber:Array<Int> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         CollectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         photos = camerarollAssets()
+        ScrollView.delegate = self
+                // 最大倍率・最小倍率を設定する
+        ScrollView.maximumZoomScale = 5.0
+        ScrollView.minimumZoomScale = 1.0
+        ImageView.frame = CGRect(x:0,y:0,width:view.frame.width,height:view.frame.height)
+        ImageView.image = originalImage(asset: photos[0])
+        ScrollView.addSubview(ImageView)
+        ImageView.contentMode = .scaleAspectFit
+        ScrollView.showsVerticalScrollIndicator = false
+        ScrollView.showsHorizontalScrollIndicator = false
+        CollectionView.allowsMultipleSelection = false
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -88,6 +101,21 @@ class SelectorViewController: UIViewController {
             
             return assetImage
         }
+    
+    private func originalImage(asset: PHAsset) -> UIImage? {
+        var assetImage: UIImage?
+
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        options.isNetworkAccessAllowed = true
+        PHImageManager.default().requestImageDataAndOrientation(for: asset, options: options) { imageData, dataUTI, orientation, info in
+            if let imageData = imageData {
+                assetImage = UIImage.init(data: imageData)
+            }
+        }
+
+        return assetImage
+    }
 
     /*
     // MARK: - Navigation
@@ -113,8 +141,38 @@ extension SelectorViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! CollectionViewCell
                 let image = thumbnail(asset: photos[indexPath.item])
                 cell.setImage(image: image)
-        print("set")
+        if selectnumber.contains(indexPath.item){
+            cell.setCheck(number: (selectnumber.firstIndex(of: indexPath.item)!+1))
+        }
+        else{
+            cell.dissetCheck()
+        }
                 return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell: CollectionViewCell = CollectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        
+        if selectnumber.contains(indexPath.item){
+            cell.dissetCheck()
+            selectnumber.removeAll(where: {$0 == indexPath.item})
+            reloadcell()
+        }
+        else{
+            if selectnumber.count < 10{
+            selectnumber.append(indexPath.item)
+            cell.setCheck(number: (selectnumber.count))
+            ImageView.image = originalImage(asset: photos[indexPath.item])
+            }
+        }
+        
+    }
+    
+    func reloadcell(){
+        for (i, value) in selectnumber.enumerated(){
+            let cell: CollectionViewCell = CollectionView.cellForItem(at: [0, value]) as! CollectionViewCell
+            cell.setCheck(number: (i+1))
+        }
     }
 }
 extension SelectorViewController: UICollectionViewDelegateFlowLayout {
@@ -124,10 +182,32 @@ extension SelectorViewController: UICollectionViewDelegateFlowLayout {
         // 横に４列表示する
         let cellWidth:CGFloat = collectionView.bounds.width / 4
         let cellHeight:CGFloat = cellWidth
-        print(cellWidth, cellHeight)
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
 
+}
+extension SelectorViewController: UIScrollViewDelegate{
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.ImageView
+        }
+
+        func scrollViewDidZoom(_ scrollView: UIScrollView) {
+            // ズーム終了時の処理
+        }
+
+        func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+            // ズーム開始時の処理
+        }
+
+        func zoomForScale(scale:CGFloat, center: CGPoint) -> CGRect{
+            print("jijj")
+            var zoomRect: CGRect = CGRect()
+            zoomRect.size.height = self.ScrollView.frame.size.height / scale
+            zoomRect.size.width = self.ScrollView.frame.size.width  / scale
+            zoomRect.origin.x = center.x - zoomRect.size.width / 2.0
+            zoomRect.origin.y = center.y - zoomRect.size.height / 2.0
+            return zoomRect
+        }
 }
 

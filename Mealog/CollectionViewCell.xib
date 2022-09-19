@@ -19,18 +19,31 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X8M-0S-DzN">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaQ-Nd-HMB">
+                        <rect key="frame" x="169" y="10" width="21" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="cXY-6p-Mkg"/>
+                            <constraint firstAttribute="width" constant="21" id="olu-Mr-hFA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="X8M-0S-DzN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0fY-M7-GBy"/>
                 <constraint firstItem="X8M-0S-DzN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Hn4-uk-lzs"/>
+                <constraint firstAttribute="trailing" secondItem="YaQ-Nd-HMB" secondAttribute="trailing" constant="10" id="UcW-Mu-dI1"/>
                 <constraint firstAttribute="bottom" secondItem="X8M-0S-DzN" secondAttribute="bottom" id="Xug-A2-bHc"/>
                 <constraint firstAttribute="trailing" secondItem="X8M-0S-DzN" secondAttribute="trailing" id="gFB-Td-75V"/>
+                <constraint firstItem="YaQ-Nd-HMB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="xO6-8l-4Dn"/>
             </constraints>
             <size key="customSize" width="200" height="200"/>
             <connections>
                 <outlet property="ImageView" destination="X8M-0S-DzN" id="BOx-AS-uTW"/>
+                <outlet property="SelectLabel" destination="YaQ-Nd-HMB" id="lb5-tn-sKJ"/>
             </connections>
             <point key="canvasLocation" x="362.31884057971018" y="75"/>
         </collectionViewCell>

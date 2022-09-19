@@ -17,10 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-h7-Asi">
-                                <rect key="frame" x="0.0" y="488" width="414" height="408"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-h7-Asi">
+                                <rect key="frame" x="0.0" y="556" width="414" height="340"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eh7-h7-Asi" secondAttribute="height" multiplier="207:170" id="GrF-yA-QWZ"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="x3Z-5g-KIg">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -42,18 +44,29 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="DS1-5c-5jH"/>
                                 </connections>
                             </collectionView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cq0-WV-SLS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="389"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cq0-WV-SLS">
+                                <rect key="frame" x="0.0" y="102" width="414" height="389"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cq0-WV-SLS" secondAttribute="height" multiplier="414:389" id="mGb-vF-OoR"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="5iv-es-lAp"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="RqW-Mk-wTH"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eh7-h7-Asi" secondAttribute="bottom" id="CC9-dS-g0X"/>
+                            <constraint firstItem="eh7-h7-Asi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="P5H-EJ-OT3"/>
+                            <constraint firstItem="cq0-WV-SLS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YJb-vW-yeb"/>
+                            <constraint firstItem="cq0-WV-SLS" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ieV-k4-qzn"/>
+                            <constraint firstItem="eh7-h7-Asi" firstAttribute="top" secondItem="cq0-WV-SLS" secondAttribute="bottom" constant="65" id="u9h-1H-lIN"/>
+                            <constraint firstItem="eh7-h7-Asi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="xUC-q9-Kgf"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="CollectionView" destination="eh7-h7-Asi" id="1Gt-Nv-45g"/>
+                        <outlet property="ScrollView" destination="cq0-WV-SLS" id="qL1-2H-HYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
