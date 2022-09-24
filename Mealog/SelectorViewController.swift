@@ -7,36 +7,28 @@
 
 import UIKit
 import Photos
-import CropViewController
 
 class SelectorViewController: UIViewController{
 
     @IBOutlet weak var pagecontroll: UIPageControl!
+    @IBOutlet weak var containerview: UIView!
     @IBOutlet weak var CollectionView: UICollectionView!
-    //@IBOutlet weak var ScrollView: UIScrollView!
-    var ImageView = UIImageView()
+    @IBOutlet weak var nextbutton: UIBarButtonItem!
     var pageViewController: UIPageViewController?
     var selectnumber:Array<Int> = []
+    var containerVCs: Array<UIViewController> = []
+    var images: Array<UIImage> = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        _ = requestPhotoLibraryAuthorization()
         pageViewController = children.first! as? UIPageViewController
-        pageViewController!.dataSource = self
-        pageViewController!.delegate = self
-        CollectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         photos = camerarollAssets()
         pagecontroll.numberOfPages = selectnumber.count
         pagecontroll.currentPage = 0
-        /*ScrollView.delegate = self
-                // 最大倍率・最小倍率を設定する
-        ScrollView.maximumZoomScale = 5.0
-        ScrollView.minimumZoomScale = 1.0*/
-        ImageView.frame = CGRect(x:0,y:0,width:view.frame.width,height:view.frame.height)
-        ImageView.image = originalImage(asset: photos[0])
-        //ScrollView.addSubview(ImageView)
-        ImageView.contentMode = .scaleAspectFit
-        //ScrollView.showsVerticalScrollIndicator = false
-        //ScrollView.showsHorizontalScrollIndicator = false
+        pagecontroll.hidesForSinglePage = false
         CollectionView.allowsMultipleSelection = false
+        CollectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
+       
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -54,11 +46,15 @@ class SelectorViewController: UIViewController{
               present(dialog, animated: true, completion: nil)
             
         }
+        if selectnumber.count == 0{
+        nextbutton.isEnabled = false
+        }
         else{
-            
+            nextbutton.isEnabled = true
         }
         
     }
+    
     
     
     func requestPhotoLibraryAuthorization() -> Bool {
@@ -128,29 +124,40 @@ class SelectorViewController: UIViewController{
     var cnt = 0
     func setViewController() {
             if cnt < selectnumber.count {
+                nextbutton.isEnabled = true
+                pagecontroll.isHidden = false
                 let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
                 // 遷移先のViewControllerにpalletの色を送る
                 contentVC.selectimage = originalImage(asset: photos[selectnumber.last!])
+                
                 pagecontroll.numberOfPages = selectnumber.count
                 contentVC.selectnumber = selectnumber.last
+                contentVC.width = containerview.frame.width
+                contentVC.height = containerview.frame.height
+                contentVC.x = 0
+                contentVC.y = 0
                 cnt =  selectnumber.count - 1
                 pagecontroll.currentPage = cnt
+                containerVCs.append(contentVC)
                 // PageViewControllerにViewControllerをセット
                 self.pageViewController?.setViewControllers([contentVC], direction: .forward, animated: true,completion: nil)
             }
         }
     func desetViewController() {
-                let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
-                // 遷移先のViewControllerにpalletの色を送る
+        cnt =  selectnumber.count - 1
+        pagecontroll.numberOfPages = selectnumber.count
+        pagecontroll.currentPage = cnt
         if selectnumber.count > 0{
-                contentVC.selectimage = originalImage(asset: photos[selectnumber.last!])
-                contentVC.selectnumber = selectnumber.last
+            self.pageViewController?.setViewControllers([containerVCs[cnt]], direction: .forward, animated: false,completion: nil)
         }
-                cnt =  selectnumber.count - 1
-                pagecontroll.numberOfPages = selectnumber.count
-                pagecontroll.currentPage = cnt
+        else{
+            nextbutton.isEnabled = false
+            pagecontroll.isHidden = true
+            let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
+            self.pageViewController?.setViewControllers([contentVC], direction: .forward, animated: false,completion: nil)
+        }
                 // PageViewControllerにViewControllerをセット
-                self.pageViewController?.setViewControllers([contentVC], direction: .forward, animated: false,completion: nil)
+                
         }
 
     /*
@@ -166,15 +173,41 @@ class SelectorViewController: UIViewController{
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true)
     }
-    @IBAction func pagecontrolchanged(_ sender: UIPageControl) {
-        print(sender.currentPage)
-        let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
-        // 遷移先のViewControllerにpalletの色を送る
-        contentVC.selectimage = originalImage(asset: photos[selectnumber[sender.currentPage]])
-        cnt =  sender.currentPage
-        // PageViewControllerにViewControllerをセット
-        self.pageViewController?.setViewControllers([contentVC], direction: .forward, animated: true,completion: nil)
+    
+    @IBAction func Next(_ sender: Any) {
+        images = []
+        for i in containerVCs{
+            let VC = i as! SlideImageViewController
+            let image = VC.exportImage()
+            images.append(image)
+            
+            
+        }
+        
+        performSegue(withIdentifier: "EffectViewSegue", sender: nil)
     }
+    
+    
+    @IBAction func pagecontrolchanged(_ sender: UIPageControl) {
+        if sender.currentPage > cnt{
+            cnt =  sender.currentPage
+            self.pageViewController?.setViewControllers([containerVCs[cnt]], direction: .forward, animated: true,completion: nil)
+        }
+        else{
+            cnt =  sender.currentPage
+            self.pageViewController?.setViewControllers([containerVCs[cnt]], direction: .reverse, animated: true,completion: nil)
+        }
+        
+    
+        // PageViewControllerにViewControllerをセット
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "EffectViewSegue" {
+                let nextVC = segue.destination as! EffectViewController
+                nextVC.images = images
+            }
+        }
 }
 extension SelectorViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -202,7 +235,9 @@ extension SelectorViewController: UICollectionViewDelegate, UICollectionViewData
         let cell: CollectionViewCell = CollectionView.cellForItem(at: indexPath) as! CollectionViewCell
         if selectnumber.contains(indexPath.item){
             cell.dissetCheck()
-            selectnumber.removeAll(where: {$0 == indexPath.item})
+            let firstindex = selectnumber.firstIndex(of: indexPath.item)
+            containerVCs.remove(at: firstindex!)
+            selectnumber.remove(at: firstindex!)
             reloadcell()
             desetViewController()
         }
@@ -211,18 +246,8 @@ extension SelectorViewController: UICollectionViewDelegate, UICollectionViewData
             if selectnumber.count < 10{
             selectnumber.append(indexPath.item)
             cell.setCheck(number: (selectnumber.count))
-            ImageView.image = originalImage(asset: photos[indexPath.item])
+            //ImageView.image = originalImage(asset: photos[indexPath.item])
             setViewController()
-                let cropViewController = CropViewController(croppingStyle: .default, image: originalImage(asset: photos[indexPath.item])!)
-                cropViewController.delegate = self
-                cropViewController.aspectRatioPreset = .presetSquare
-                cropViewController.aspectRatioPickerButtonHidden = true
-                cropViewController.resetButtonHidden = true
-                cropViewController.aspectRatioLockEnabled = true
-                cropViewController.cancelButtonHidden = false
-                cropViewController.rotateButtonsHidden = true
-                cropViewController.doneButtonHidden = false
-                present(cropViewController, animated: true)
             }
         }
         
@@ -249,7 +274,8 @@ extension SelectorViewController: UICollectionViewDelegateFlowLayout {
     
 
 }
-extension SelectorViewController: UIPageViewControllerDataSource {
+
+/*extension SelectorViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
           let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
             if 0 < cnt {
@@ -290,11 +316,7 @@ extension SelectorViewController: UIPageViewControllerDelegate{
         }
     }
     
-}
-extension SelectorViewController: CropViewControllerDelegate{
-    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int){
-        dismiss(animated: true)
-    }
-}
+}*/
+
 
 

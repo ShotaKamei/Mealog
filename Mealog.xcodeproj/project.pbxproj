@@ -23,9 +23,37 @@
 		3E6DF08628D643B3002ACFC0 /* FakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF08528D643B3002ACFC0 /* FakeViewController.swift */; };
 		3E6DF08B28D65689002ACFC0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */; };
 		3E6DF08C28D65689002ACFC0 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */; };
-		3E6DF08F28D8A8BD002ACFC0 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6DF08E28D8A8BD002ACFC0 /* CropViewController */; };
-		3E6DF09128D8A8BD002ACFC0 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6DF09028D8A8BD002ACFC0 /* TOCropViewController */; };
 		3E6DF09528D8B69B002ACFC0 /* SlideImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF09428D8B69B002ACFC0 /* SlideImageViewController.swift */; };
+		3E6DF09728DB535E002ACFC0 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF09628DB535E002ACFC0 /* EffectViewController.swift */; };
+		3E6DF09A28DB7781002ACFC0 /* AfterEffectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF09828DB7781002ACFC0 /* AfterEffectCollectionViewCell.swift */; };
+		3E6DF09B28DB7781002ACFC0 /* AfterEffectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF09928DB7781002ACFC0 /* AfterEffectCollectionViewCell.xib */; };
+		3E6DF09D28DCBC6E002ACFC0 /* CarouselCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF09C28DCBC6E002ACFC0 /* CarouselCollectionViewFlowLayout.swift */; };
+		3E6DF0A128DCC1F3002ACFC0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0A028DCC1F3002ACFC0 /* Launch Screen.storyboard */; };
+		3E6DF0A428DCC694002ACFC0 /* EffectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0A228DCC694002ACFC0 /* EffectCollectionViewCell.swift */; };
+		3E6DF0A528DCC694002ACFC0 /* EffectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0A328DCC694002ACFC0 /* EffectCollectionViewCell.xib */; };
+		3E6DF0A828DCF350002ACFC0 /* CaptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0A628DCF350002ACFC0 /* CaptionTableViewCell.swift */; };
+		3E6DF0A928DCF350002ACFC0 /* CaptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0A728DCF350002ACFC0 /* CaptionTableViewCell.xib */; };
+		3E6DF0AB28DD0AFA002ACFC0 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0AA28DD0AFA002ACFC0 /* DetailTableViewController.swift */; };
+		3E6DF0AE28DD0FFE002ACFC0 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0AC28DD0FFE002ACFC0 /* ImageCollectionViewCell.swift */; };
+		3E6DF0AF28DD0FFE002ACFC0 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0AD28DD0FFE002ACFC0 /* ImageCollectionViewCell.xib */; };
+		3E6DF0B128DD178B002ACFC0 /* PlaceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0B028DD178B002ACFC0 /* PlaceTextView.swift */; };
+		3E6DF0B628DD19EE002ACFC0 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0B428DD19EE002ACFC0 /* DateTableViewCell.swift */; };
+		3E6DF0B728DD19EE002ACFC0 /* DateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0B528DD19EE002ACFC0 /* DateTableViewCell.xib */; };
+		3E6DF0BA28DD281E002ACFC0 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0B828DD281E002ACFC0 /* CategoryTableViewCell.swift */; };
+		3E6DF0BB28DD281E002ACFC0 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0B928DD281E002ACFC0 /* CategoryTableViewCell.xib */; };
+		3E6DF0BE28DD3D87002ACFC0 /* EvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0BC28DD3D87002ACFC0 /* EvaluationTableViewCell.swift */; };
+		3E6DF0BF28DD3D87002ACFC0 /* EvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0BD28DD3D87002ACFC0 /* EvaluationTableViewCell.xib */; };
+		3E6DF0C228DD442D002ACFC0 /* LocateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0C028DD442D002ACFC0 /* LocateTableViewCell.swift */; };
+		3E6DF0C328DD442D002ACFC0 /* LocateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0C128DD442D002ACFC0 /* LocateTableViewCell.xib */; };
+		3E6DF0C628DEB0B4002ACFC0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6DF0C528DEB0B4002ACFC0 /* Realm */; };
+		3E6DF0C828DEB0B4002ACFC0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6DF0C728DEB0B4002ACFC0 /* RealmSwift */; };
+		3E6DF0CA28DEB28A002ACFC0 /* DateBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0C928DEB28A002ACFC0 /* DateBase.swift */; };
+		3E6DF0CC28DEBD54002ACFC0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0CB28DEBD54002ACFC0 /* CategoryViewController.swift */; };
+		3E6DF0CE28DEBDC3002ACFC0 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0CD28DEBDC3002ACFC0 /* CategoryTableViewController.swift */; };
+		3E6DF0D128DEBE0E002ACFC0 /* Category_selectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0CF28DEBE0E002ACFC0 /* Category_selectTableViewCell.swift */; };
+		3E6DF0D228DEBE0E002ACFC0 /* Category_selectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0D028DEBE0E002ACFC0 /* Category_selectTableViewCell.xib */; };
+		3E6DF0D928DEDB8F002ACFC0 /* AddCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6DF0D728DEDB8F002ACFC0 /* AddCategoryTableViewCell.swift */; };
+		3E6DF0DA28DEDB8F002ACFC0 /* AddCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6DF0D828DEDB8F002ACFC0 /* AddCategoryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +78,6 @@
 		3E6DF04328D639CA002ACFC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E6DF04528D639CA002ACFC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3E6DF04C28D639CA002ACFC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3E6DF05128D639CA002ACFC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E6DF05628D639CB002ACFC0 /* MealogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E6DF05A28D639CB002ACFC0 /* MealogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealogTests.swift; sourceTree = "<group>"; };
 		3E6DF06028D639CB002ACFC0 /* MealogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +94,34 @@
 		3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		3E6DF09428D8B69B002ACFC0 /* SlideImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideImageViewController.swift; sourceTree = "<group>"; };
+		3E6DF09628DB535E002ACFC0 /* EffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectViewController.swift; sourceTree = "<group>"; };
+		3E6DF09828DB7781002ACFC0 /* AfterEffectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterEffectCollectionViewCell.swift; sourceTree = "<group>"; };
+		3E6DF09928DB7781002ACFC0 /* AfterEffectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AfterEffectCollectionViewCell.xib; sourceTree = "<group>"; };
+		3E6DF09C28DCBC6E002ACFC0 /* CarouselCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		3E6DF0A028DCC1F3002ACFC0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		3E6DF0A228DCC694002ACFC0 /* EffectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectCollectionViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0A328DCC694002ACFC0 /* EffectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EffectCollectionViewCell.xib; sourceTree = "<group>"; };
+		3E6DF0A628DCF350002ACFC0 /* CaptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTableViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0A728DCF350002ACFC0 /* CaptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptionTableViewCell.xib; sourceTree = "<group>"; };
+		3E6DF0AA28DD0AFA002ACFC0 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		3E6DF0AC28DD0FFE002ACFC0 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0AD28DD0FFE002ACFC0 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		3E6DF0B028DD178B002ACFC0 /* PlaceTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTextView.swift; sourceTree = "<group>"; };
+		3E6DF0B428DD19EE002ACFC0 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0B528DD19EE002ACFC0 /* DateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTableViewCell.xib; sourceTree = "<group>"; };
+		3E6DF0B828DD281E002ACFC0 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0B928DD281E002ACFC0 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		3E6DF0BC28DD3D87002ACFC0 /* EvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationTableViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0BD28DD3D87002ACFC0 /* EvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationTableViewCell.xib; sourceTree = "<group>"; };
+		3E6DF0C028DD442D002ACFC0 /* LocateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateTableViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0C128DD442D002ACFC0 /* LocateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocateTableViewCell.xib; sourceTree = "<group>"; };
+		3E6DF0C928DEB28A002ACFC0 /* DateBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateBase.swift; sourceTree = "<group>"; };
+		3E6DF0CB28DEBD54002ACFC0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		3E6DF0CD28DEBDC3002ACFC0 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		3E6DF0CF28DEBE0E002ACFC0 /* Category_selectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category_selectTableViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0D028DEBE0E002ACFC0 /* Category_selectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Category_selectTableViewCell.xib; sourceTree = "<group>"; };
+		3E6DF0D728DEDB8F002ACFC0 /* AddCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		3E6DF0D828DEDB8F002ACFC0 /* AddCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCategoryTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E6DF09128D8A8BD002ACFC0 /* TOCropViewController in Frameworks */,
-				3E6DF08F28D8A8BD002ACFC0 /* CropViewController in Frameworks */,
+				3E6DF0C828DEB0B4002ACFC0 /* RealmSwift in Frameworks */,
+				3E6DF0C628DEB0B4002ACFC0 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,19 +176,46 @@
 			children = (
 				3E6DF04328D639CA002ACFC0 /* AppDelegate.swift */,
 				3E6DF04528D639CA002ACFC0 /* SceneDelegate.swift */,
-				3E6DF04C28D639CA002ACFC0 /* Assets.xcassets */,
-				3E6DF05128D639CA002ACFC0 /* Info.plist */,
-				3E6DF07528D640D2002ACFC0 /* MainView.storyboard */,
-				3E6DF07728D640FE002ACFC0 /* MainViewController.swift */,
+				3E6DF0A028DCC1F3002ACFC0 /* Launch Screen.storyboard */,
 				3E6DF07928D64119002ACFC0 /* SelectorView.storyboard */,
-				3E6DF07B28D64131002ACFC0 /* SelectorViewController.swift */,
 				3E6DF08128D64168002ACFC0 /* MypageView.storyboard */,
+				3E6DF07528D640D2002ACFC0 /* MainView.storyboard */,
+				3E6DF09928DB7781002ACFC0 /* AfterEffectCollectionViewCell.xib */,
+				3E6DF0A328DCC694002ACFC0 /* EffectCollectionViewCell.xib */,
+				3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */,
+				3E6DF0A728DCF350002ACFC0 /* CaptionTableViewCell.xib */,
+				3E6DF0AD28DD0FFE002ACFC0 /* ImageCollectionViewCell.xib */,
+				3E6DF0B528DD19EE002ACFC0 /* DateTableViewCell.xib */,
+				3E6DF0BD28DD3D87002ACFC0 /* EvaluationTableViewCell.xib */,
+				3E6DF0B928DD281E002ACFC0 /* CategoryTableViewCell.xib */,
+				3E6DF0C128DD442D002ACFC0 /* LocateTableViewCell.xib */,
+				3E6DF04C28D639CA002ACFC0 /* Assets.xcassets */,
+				3E6DF0C928DEB28A002ACFC0 /* DateBase.swift */,
+				3E6DF0B028DD178B002ACFC0 /* PlaceTextView.swift */,
+				3E6DF09C28DCBC6E002ACFC0 /* CarouselCollectionViewFlowLayout.swift */,
+				3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */,
+				3E6DF0A228DCC694002ACFC0 /* EffectCollectionViewCell.swift */,
+				3E6DF0A628DCF350002ACFC0 /* CaptionTableViewCell.swift */,
+				3E6DF0AC28DD0FFE002ACFC0 /* ImageCollectionViewCell.swift */,
+				3E6DF0BC28DD3D87002ACFC0 /* EvaluationTableViewCell.swift */,
+				3E6DF0B428DD19EE002ACFC0 /* DateTableViewCell.swift */,
+				3E6DF0B828DD281E002ACFC0 /* CategoryTableViewCell.swift */,
+				3E6DF0C028DD442D002ACFC0 /* LocateTableViewCell.swift */,
+				3E6DF07728D640FE002ACFC0 /* MainViewController.swift */,
+				3E6DF07B28D64131002ACFC0 /* SelectorViewController.swift */,
 				3E6DF07F28D6414E002ACFC0 /* MypageViewController.swift */,
 				3E6DF08328D641A7002ACFC0 /* TabBarController.swift */,
 				3E6DF08528D643B3002ACFC0 /* FakeViewController.swift */,
-				3E6DF08928D65689002ACFC0 /* CollectionViewCell.swift */,
-				3E6DF08A28D65689002ACFC0 /* CollectionViewCell.xib */,
 				3E6DF09428D8B69B002ACFC0 /* SlideImageViewController.swift */,
+				3E6DF09628DB535E002ACFC0 /* EffectViewController.swift */,
+				3E6DF09828DB7781002ACFC0 /* AfterEffectCollectionViewCell.swift */,
+				3E6DF0AA28DD0AFA002ACFC0 /* DetailTableViewController.swift */,
+				3E6DF0CB28DEBD54002ACFC0 /* CategoryViewController.swift */,
+				3E6DF0CD28DEBDC3002ACFC0 /* CategoryTableViewController.swift */,
+				3E6DF0CF28DEBE0E002ACFC0 /* Category_selectTableViewCell.swift */,
+				3E6DF0D028DEBE0E002ACFC0 /* Category_selectTableViewCell.xib */,
+				3E6DF0D728DEDB8F002ACFC0 /* AddCategoryTableViewCell.swift */,
+				3E6DF0D828DEDB8F002ACFC0 /* AddCategoryTableViewCell.xib */,
 			);
 			path = Mealog;
 			sourceTree = "<group>";
@@ -172,8 +254,8 @@
 			);
 			name = Mealog;
 			packageProductDependencies = (
-				3E6DF08E28D8A8BD002ACFC0 /* CropViewController */,
-				3E6DF09028D8A8BD002ACFC0 /* TOCropViewController */,
+				3E6DF0C528DEB0B4002ACFC0 /* Realm */,
+				3E6DF0C728DEB0B4002ACFC0 /* RealmSwift */,
 			);
 			productName = Mealog;
 			productReference = 3E6DF04028D639CA002ACFC0 /* Mealog.app */;
@@ -248,7 +330,7 @@
 			);
 			mainGroup = 3E6DF03728D639CA002ACFC0;
 			packageReferences = (
-				3E6DF08D28D8A8BD002ACFC0 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				3E6DF0C428DEB0B4002ACFC0 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 3E6DF04128D639CA002ACFC0 /* Products */;
 			projectDirPath = "";
@@ -266,9 +348,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E6DF0BF28DD3D87002ACFC0 /* EvaluationTableViewCell.xib in Resources */,
+				3E6DF0B728DD19EE002ACFC0 /* DateTableViewCell.xib in Resources */,
+				3E6DF09B28DB7781002ACFC0 /* AfterEffectCollectionViewCell.xib in Resources */,
+				3E6DF0A528DCC694002ACFC0 /* EffectCollectionViewCell.xib in Resources */,
+				3E6DF0BB28DD281E002ACFC0 /* CategoryTableViewCell.xib in Resources */,
 				3E6DF07A28D64119002ACFC0 /* SelectorView.storyboard in Resources */,
+				3E6DF0A128DCC1F3002ACFC0 /* Launch Screen.storyboard in Resources */,
+				3E6DF0DA28DEDB8F002ACFC0 /* AddCategoryTableViewCell.xib in Resources */,
+				3E6DF0C328DD442D002ACFC0 /* LocateTableViewCell.xib in Resources */,
+				3E6DF0AF28DD0FFE002ACFC0 /* ImageCollectionViewCell.xib in Resources */,
+				3E6DF0D228DEBE0E002ACFC0 /* Category_selectTableViewCell.xib in Resources */,
 				3E6DF07628D640D2002ACFC0 /* MainView.storyboard in Resources */,
 				3E6DF04D28D639CA002ACFC0 /* Assets.xcassets in Resources */,
+				3E6DF0A928DCF350002ACFC0 /* CaptionTableViewCell.xib in Resources */,
 				3E6DF08228D64168002ACFC0 /* MypageView.storyboard in Resources */,
 				3E6DF08C28D65689002ACFC0 /* CollectionViewCell.xib in Resources */,
 			);
@@ -295,15 +388,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E6DF09D28DCBC6E002ACFC0 /* CarouselCollectionViewFlowLayout.swift in Sources */,
 				3E6DF08628D643B3002ACFC0 /* FakeViewController.swift in Sources */,
+				3E6DF0AE28DD0FFE002ACFC0 /* ImageCollectionViewCell.swift in Sources */,
+				3E6DF0B628DD19EE002ACFC0 /* DateTableViewCell.swift in Sources */,
 				3E6DF07828D640FE002ACFC0 /* MainViewController.swift in Sources */,
 				3E6DF08B28D65689002ACFC0 /* CollectionViewCell.swift in Sources */,
 				3E6DF09528D8B69B002ACFC0 /* SlideImageViewController.swift in Sources */,
+				3E6DF0BE28DD3D87002ACFC0 /* EvaluationTableViewCell.swift in Sources */,
+				3E6DF0CC28DEBD54002ACFC0 /* CategoryViewController.swift in Sources */,
+				3E6DF09A28DB7781002ACFC0 /* AfterEffectCollectionViewCell.swift in Sources */,
+				3E6DF0AB28DD0AFA002ACFC0 /* DetailTableViewController.swift in Sources */,
+				3E6DF0D928DEDB8F002ACFC0 /* AddCategoryTableViewCell.swift in Sources */,
+				3E6DF0CE28DEBDC3002ACFC0 /* CategoryTableViewController.swift in Sources */,
 				3E6DF04428D639CA002ACFC0 /* AppDelegate.swift in Sources */,
+				3E6DF09728DB535E002ACFC0 /* EffectViewController.swift in Sources */,
+				3E6DF0CA28DEB28A002ACFC0 /* DateBase.swift in Sources */,
+				3E6DF0A428DCC694002ACFC0 /* EffectCollectionViewCell.swift in Sources */,
 				3E6DF04628D639CA002ACFC0 /* SceneDelegate.swift in Sources */,
+				3E6DF0C228DD442D002ACFC0 /* LocateTableViewCell.swift in Sources */,
+				3E6DF0A828DCF350002ACFC0 /* CaptionTableViewCell.swift in Sources */,
+				3E6DF0BA28DD281E002ACFC0 /* CategoryTableViewCell.swift in Sources */,
 				3E6DF08428D641A7002ACFC0 /* TabBarController.swift in Sources */,
 				3E6DF08028D6414E002ACFC0 /* MypageViewController.swift in Sources */,
 				3E6DF07C28D64131002ACFC0 /* SelectorViewController.swift in Sources */,
+				3E6DF0B128DD178B002ACFC0 /* PlaceTextView.swift in Sources */,
+				3E6DF0D128DEBE0E002ACFC0 /* Category_selectTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,10 +574,12 @@
 				DEVELOPMENT_TEAM = UQWRGMTM4A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mealog/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "画像の加工を行うため";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,7 +589,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -491,10 +603,12 @@
 				DEVELOPMENT_TEAM = UQWRGMTM4A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mealog/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "画像の加工を行うため";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,7 +618,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -626,26 +740,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3E6DF08D28D8A8BD002ACFC0 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+		3E6DF0C428DEB0B4002ACFC0 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
+			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.1;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3E6DF08E28D8A8BD002ACFC0 /* CropViewController */ = {
+		3E6DF0C528DEB0B4002ACFC0 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3E6DF08D28D8A8BD002ACFC0 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
-			productName = CropViewController;
+			package = 3E6DF0C428DEB0B4002ACFC0 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
-		3E6DF09028D8A8BD002ACFC0 /* TOCropViewController */ = {
+		3E6DF0C728DEB0B4002ACFC0 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3E6DF08D28D8A8BD002ACFC0 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
-			productName = TOCropViewController;
+			package = 3E6DF0C428DEB0B4002ACFC0 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
