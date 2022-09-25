@@ -127,7 +127,6 @@ class SelectorViewController: UIViewController{
                 nextbutton.isEnabled = true
                 pagecontroll.isHidden = false
                 let contentVC = storyboard?.instantiateViewController(withIdentifier: "SlideImageViewController") as! SlideImageViewController
-                // 遷移先のViewControllerにpalletの色を送る
                 contentVC.selectimage = originalImage(asset: photos[selectnumber.last!])
                 
                 pagecontroll.numberOfPages = selectnumber.count
@@ -139,6 +138,7 @@ class SelectorViewController: UIViewController{
                 cnt =  selectnumber.count - 1
                 pagecontroll.currentPage = cnt
                 containerVCs.append(contentVC)
+                print(containerVCs.count)
                 // PageViewControllerにViewControllerをセット
                 self.pageViewController?.setViewControllers([contentVC], direction: .forward, animated: true,completion: nil)
             }
@@ -238,6 +238,7 @@ extension SelectorViewController: UICollectionViewDelegate, UICollectionViewData
             let firstindex = selectnumber.firstIndex(of: indexPath.item)
             containerVCs.remove(at: firstindex!)
             selectnumber.remove(at: firstindex!)
+            cnt = selectnumber.count
             reloadcell()
             desetViewController()
         }

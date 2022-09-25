@@ -9,6 +9,7 @@ import UIKit
 
 class Category_selectTableViewCell: UITableViewCell {
 
+
     @IBOutlet weak var Category_label: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +22,5 @@ class Category_selectTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+
 }

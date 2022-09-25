@@ -12,13 +12,19 @@ class CategoryTableViewController: UITableViewController {
     var tableviewcount: Int!
     let realm = try! Realm()
     var categorys: Results<Candidate>!
+    var use_categorys: Array<String> = []
+    var select_categorys: Array<String> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "Category_selectTableViewCell", bundle: nil), forCellReuseIdentifier: "Category_selectCell")
         tableView.register(UINib(nibName: "AddCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "AddCategoryCell")
         categorys = realm.objects(Candidate.self)
+        for value in categorys{
+            print(value)
+            use_categorys.append(value.category)
+        }
         tableviewcount = categorys.count
-        print("why")
+        tableView.allowsMultipleSelection = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,6 +44,10 @@ class CategoryTableViewController: UITableViewController {
             try! realm.write {
               realm.add(category, update: .modified) // <- これで落ちない
             }
+            use_categorys = []
+            for value in categorys{
+                use_categorys.append(value.category)
+            }
         }
         else{
             tableviewcount -= 1
@@ -56,6 +66,29 @@ class CategoryTableViewController: UITableViewController {
             cell.textField.becomeFirstResponder()
             }
     }
+    
+    func search(label: String){
+        use_categorys = []
+        let VC = parent as! CategoryViewController
+        if label != ""{
+        for value in categorys{
+            if value.category.lowercased().contains(label){
+                use_categorys.append(value.category)
+            }
+            VC.AddButton.isHidden = true
+            
+        }
+        }
+        else{
+            for value in categorys{
+                use_categorys.append(value.category)
+            }
+            VC.AddButton.isHidden = false
+        }
+        tableviewcount = use_categorys.count
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,15 +102,24 @@ class CategoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < categorys.count{
+        if indexPath.row < use_categorys.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Category_selectCell", for: indexPath) as! Category_selectTableViewCell
-            cell.Category_label.text = categorys[indexPath.row].category
+            cell.Category_label.text = use_categorys[indexPath.row]
+            if select_categorys.contains(use_categorys[indexPath.row]){
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                cell.accessoryType = .checkmark
+            }
+            else{
+                tableView.deselectRow(at: indexPath, animated: false)
+                cell.accessoryType = .none
+            }
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCategoryCell", for: indexPath) as! AddCategoryTableViewCell
             cell.textField.delegate = self
             cell.textField.text = ""
+            cell.selectionStyle = .none
             return cell
         }
         // Configure the cell...
@@ -85,7 +127,18 @@ class CategoryTableViewController: UITableViewController {
     }
     override func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
         if let cell: Category_selectTableViewCell = tableView.cellForRow(at: indexPath) as? Category_selectTableViewCell{
-                
+            select_categorys.append((cell.Category_label.text)!)
+            cell.accessoryType = .checkmark
+            let VC = parent as! CategoryViewController
+            VC.select_categorys = select_categorys
+            }
+        }
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell: Category_selectTableViewCell = tableView.cellForRow(at: indexPath) as? Category_selectTableViewCell{
+            select_categorys.removeAll(where: {$0 == (cell.Category_label.text)!})
+            cell.accessoryType = .none
+            let VC = parent as! CategoryViewController
+            VC.select_categorys = select_categorys
             }
         }
     /*
@@ -132,13 +185,11 @@ class CategoryTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 extension CategoryTableViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
         if textField.text == ""{
-            print("ww")
             Category_delete()
         }
         else{

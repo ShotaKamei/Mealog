@@ -19,27 +19,18 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isX-ja-jQx">
                         <rect key="frame" x="20" y="5" width="100" height="30"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="30" id="WMO-ld-QRE"/>
                             <constraint firstAttribute="width" constant="100" id="rPY-A8-0Vg"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KaS-ap-39g">
-                        <rect key="frame" x="280" y="5" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="mCB-eE-eWX"/>
-                            <constraint firstAttribute="height" constant="30" id="qk8-Vs-hBA"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="isX-ja-jQx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8gD-ZS-LA0"/>
-                    <constraint firstAttribute="trailing" secondItem="KaS-ap-39g" secondAttribute="trailing" constant="10" id="AeS-ao-8Kt"/>
                     <constraint firstAttribute="bottom" secondItem="isX-ja-jQx" secondAttribute="bottom" constant="5" id="Dda-X8-poQ"/>
                     <constraint firstItem="isX-ja-jQx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="KAl-KF-zCD"/>
-                    <constraint firstAttribute="bottom" secondItem="KaS-ap-39g" secondAttribute="bottom" constant="5" id="ZcV-dN-Gfb"/>
-                    <constraint firstItem="KaS-ap-39g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="xDL-ev-ymH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

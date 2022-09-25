@@ -291,7 +291,7 @@
             <objects>
                 <tableViewController id="H5n-UL-8gJ" customClass="CategoryTableViewController" customModule="Mealog" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Qgh-Xx-Axn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="668"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="678"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -394,7 +394,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLl-UQ-FuM">
-                                <rect key="frame" x="0.0" y="94" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="678"/>
                                 <connections>
                                     <segue destination="H5n-UL-8gJ" kind="embed" identifier="CategorySelectSegue" id="pcE-b4-6g2"/>
                                 </connections>
@@ -419,7 +419,7 @@
                             <constraint firstItem="cLl-UQ-FuM" firstAttribute="leading" secondItem="8rJ-FN-PNm" secondAttribute="leading" id="IKS-c9-hBL"/>
                             <constraint firstItem="jOM-8Y-9oW" firstAttribute="top" secondItem="8rJ-FN-PNm" secondAttribute="top" id="ScU-9b-kSP"/>
                             <constraint firstItem="cLl-UQ-FuM" firstAttribute="trailing" secondItem="8rJ-FN-PNm" secondAttribute="trailing" id="WvC-CC-tis"/>
-                            <constraint firstItem="oGT-kC-mn0" firstAttribute="top" secondItem="cLl-UQ-FuM" secondAttribute="bottom" constant="20" id="bI2-rt-pyu"/>
+                            <constraint firstItem="oGT-kC-mn0" firstAttribute="top" secondItem="cLl-UQ-FuM" secondAttribute="bottom" constant="10" id="bI2-rt-pyu"/>
                             <constraint firstItem="8rJ-FN-PNm" firstAttribute="trailing" secondItem="oGT-kC-mn0" secondAttribute="trailing" constant="20" id="c4t-lB-BT5"/>
                             <constraint firstItem="8rJ-FN-PNm" firstAttribute="bottom" secondItem="oGT-kC-mn0" secondAttribute="bottom" constant="20" id="uFJ-vs-UYE"/>
                             <constraint firstItem="jOM-8Y-9oW" firstAttribute="trailing" secondItem="8rJ-FN-PNm" secondAttribute="trailing" id="v1d-SX-2un"/>
@@ -428,6 +428,7 @@
                     </view>
                     <connections>
                         <outlet property="AddButton" destination="oGT-kC-mn0" id="0Vx-Wf-C65"/>
+                        <outlet property="searchBar" destination="jOM-8Y-9oW" id="XgV-B7-xjr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4jF-PZ-p0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

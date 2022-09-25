@@ -9,6 +9,8 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
     var images: Array<UIImage>!
+    var VC: CategoryViewController!
+    var select_category: Array<String> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "CaptionTableViewCell", bundle: nil), forCellReuseIdentifier: "CaptionCell")
@@ -22,6 +24,7 @@ class DetailTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     // MARK: - Table view data source
 
@@ -76,7 +79,6 @@ class DetailTableViewController: UITableViewController {
             performSegue(withIdentifier: "CategorySegue", sender: nil)
         }
     }
-
     @objc func dismissKeyboard(){
         if  let cell1: CaptionTableViewCell = tableView.cellForRow(at: [0, 0]) as? CaptionTableViewCell{
             cell1.dismissKeyboard()}
@@ -127,5 +129,21 @@ class DetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CategorySegue" {
+            VC = segue.destination as? CategoryViewController
+            VC?.presentationController!.delegate = self
+            VC.select_categorys = select_category
+            if let sheets = VC.sheetPresentationController{sheets.detents = [.medium()]}
+        }
+      }
 
+}
+extension DetailTableViewController: UIAdaptivePresentationControllerDelegate {
+    // このメソッドを実装
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        // Modal画面から戻った際の画面の更新処理を行う。 (collectionView.reloadDataなど。)
+        select_category = VC.select_categorys
+        
+    }
 }
